@@ -9,7 +9,7 @@ const { v4: uuidv4 } = require('uuid');
 const axios = require("axios");
 
 const WORLD_ID_VERIFICATION_URL = "https://developer.worldcoin.org/api/v1/verify";
-const ACTION_ID = "app_90011ccc0672edaf8c7437d18ef8e619"; // Reemplaza con tu ID de acción
+const ACTION_ID = "clients_annon_vote"; // Reemplaza con tu ID de acción
 const API_KEY = "api_a2V5XzkwZmI3Y2I3MGFlNjNkNzgxZjdmMWM4MmZiODBhYzFiOnNrX2I0OTNkZTYwNTIzMzQxZDkwMjcxY2RiYjEzMzA3NDc1YzI0YTM0NzgzODFmZTgyYg"; // Reemplaza con tu API Key de Worldcoin
 
 const v4options = {
