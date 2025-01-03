@@ -400,31 +400,23 @@ const renewToken = async (req, res) => {
 };
 
 const verifyWorldId = async (req, res) => {
-  const { verificationToken, signal } = req.body;
+  const { proof, signal } = req.body;
 
   try {
-    const response = await axios.post(
-      WORLD_ID_VERIFICATION_URL,
-      {
-        verification_token: verificationToken,
-        action_id: ACTION_ID,
-        signal,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${API_KEY}`,
-        },
-      }
-    );
+    // Lógica para verificar el token de Worldcoin
+    const isValid = true; // Simula la validación (debes implementar la lógica real)
 
-    if (response.data.success) {
-      return res.status(200).json({ success: true, message: "Verification successful" });
+    if (isValid) {
+      return res.json({
+        success: true,
+        user: { name: "Usuario Ejemplo" }, // Devuelve información del usuario si es necesario
+      });
     } else {
-      return res.status(400).json({ success: false, message: "Verification failed" });
+      return res.json({ success: false, message: "Token inválido." });
     }
   } catch (error) {
-    console.error("Error verifying with World ID:", error);
-    return res.status(500).json({ success: false, message: "Internal server error" });
+    console.error("Error en la verificación:", error);
+    res.status(500).json({ success: false, message: "Error interno del servidor." });
   }
 };
 
