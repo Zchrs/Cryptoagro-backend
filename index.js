@@ -4,7 +4,6 @@ const path = require('path');
 const cors = require('cors');
 const socketIo = require('socket.io');
 const dotenv = require('dotenv');
-const worldIdRoutes = require("./routes/worldIdRoutes");
 
 // Configuración de Express
 const app = express();
@@ -88,7 +87,7 @@ app.use('/api/products', require('./routes/products'));
 app.use('/api/cart', require('./routes/cart'));
 app.use('/api/wishlist', require('./routes/wishlist'));
 app.use('/api/ratings', require('./routes/ratings'));
-app.use("/api/worldid", worldIdRoutes);
+app.use("/api/worldid", require('./routes/auth'));
 
 // Configuración de socket.io
 io.on('connection', (socket) => {
