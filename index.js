@@ -21,6 +21,10 @@ let corsOptions;
 if (process.env.NODE_ENV === 'production') {
   corsOptions = {
     origin: [
+      'https://id.worldcoin.org/authorize',
+      'https://id.worldcoin.org/token',
+      'https://developer.worldcoin.org/api/v1/verify',
+      'https://cryptoagro.vercel.app',
       'https://cryptoagro.vercel.app',
       'https://www.cryptoagro.vercel.app',
       'https://admin.cryptoagro.vercel.app',
