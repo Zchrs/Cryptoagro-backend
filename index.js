@@ -25,6 +25,8 @@ if (process.env.NODE_ENV === 'production') {
       'https://id.worldcoin.org/token',
       'https://developer.worldcoin.org/api/v1/verify',
       'https://cryptoagro.vercel.app',
+      'https://cryptoagro.tech',
+      'https://www.cryptoagro.tech',
       'https://cryptoagro.vercel.app',
       'https://www.cryptoagro.vercel.app',
       'https://admin.cryptoagro.vercel.app',
