@@ -6,11 +6,6 @@ const mysqls = require("mysql2/promise");
 const mysql = require("mysql");
 const nodemailer = require('nodemailer');
 const { v4: uuidv4 } = require('uuid');
-const axios = require("axios");
-
-const WORLD_ID_VERIFICATION_URL = "https://developer.worldcoin.org/api/v1/verify";
-const ACTION_ID = "clients_annon_vote"; // Reemplaza con tu ID de acción
-const API_KEY = "api_a2V5XzkwZmI3Y2I3MGFlNjNkNzgxZjdmMWM4MmZiODBhYzFiOnNrX2I0OTNkZTYwNTIzMzQxZDkwMjcxY2RiYjEzMzA3NDc1YzI0YTM0NzgzODFmZTgyYg"; // Reemplaza con tu API Key de Worldcoin
 
 const v4options = {
   random: [
@@ -399,31 +394,9 @@ const renewToken = async (req, res) => {
   });
 };
 
-const verifyWorldId = async (req, res) => {
-  const { proof, signal } = req.body;
-
-  try {
-    // Lógica para verificar el token de Worldcoin
-    const isValid = true; // Simula la validación (debes implementar la lógica real)
-
-    if (isValid) {
-      return res.json({
-        success: true,
-        user: { name: "Usuario Ejemplo" }, // Devuelve información del usuario si es necesario
-      });
-    } else {
-      return res.json({ success: false, message: "Token inválido." });
-    }
-  } catch (error) {
-    console.error("Error en la verificación:", error);
-    res.status(500).json({ success: false, message: "Error interno del servidor." });
-  }
-};
-
 module.exports = {
   createUser,
   loginUser,
   verifyUser,
   renewToken,
-  verifyWorldId
 };

@@ -87,7 +87,7 @@ app.use('/api/products', require('./routes/products'));
 app.use('/api/cart', require('./routes/cart'));
 app.use('/api/wishlist', require('./routes/wishlist'));
 app.use('/api/ratings', require('./routes/ratings'));
-app.use("/api/worldid", require('./routes/auth'));
+app.use("/api/worldid", require('./routes/authWorldCoin'));
 
 // Configuración de socket.io
 io.on('connection', (socket) => {
