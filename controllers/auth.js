@@ -394,9 +394,23 @@ const renewToken = async (req, res) => {
   });
 };
 
+const verifyToken = (req, res, next) => {
+  const token = req.headers['authorization'];
+  if (!token) return res.status(403).send('Token no proporcionado.');
+
+  jwt.verify(token, process.env.AUTH0_SECRET, (err, decoded) => {
+    if (err) return res.status(500).send('Error autenticando el token.');
+    req.userId = decoded.id;
+    next();
+  });
+
+  res.status(200).send({ message: 'Token verificado con éxito', user: req.userId });
+};
+
 module.exports = {
   createUser,
   loginUser,
   verifyUser,
   renewToken,
+  verifyToken
 };
